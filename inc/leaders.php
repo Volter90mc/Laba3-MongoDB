@@ -1,11 +1,4 @@
 <?php
 
-$cursor = $db->leaders->find([]);
-
-$leaders = array();
-foreach ($cursor as $document) {
-    $leaders[] = array(
-        'ID'    => $document['ID_Leader'], 
-        'surname'    => $document['surname'], 
-    );
-}
+$cursor = $db->tasks->distinct('leader');
+$leaders = $cursor;

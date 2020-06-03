@@ -11,7 +11,7 @@ $tempTime = strtotime($targetDate.' '.$targetTime);
 $utcTotalTime = new MongoDB\BSON\UTCDateTime(($tempTime+7200) * 1000);
 
 $cursor = $db->tasks->find([
-	'FID_Projects'	=>	(int)$project,
+	'project'		=>	$project,
 	'time_end'		=>	array('$lt'	=>	$utcTotalTime)
 ]);
 $result = iterator_to_array($cursor);

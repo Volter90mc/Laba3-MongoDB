@@ -1,11 +1,4 @@
 <?php
 
-$cursor = $db->projects->find([]);
-
-$projectNames = array();
-foreach ($cursor as $document) {
-    $projectNames[] = array(
-        'ID'    => $document['ID_Projects'], 
-        'name'    => $document['name'], 
-    );
-}
+$cursor = $db->tasks->distinct('project');
+$projectNames = $cursor;
